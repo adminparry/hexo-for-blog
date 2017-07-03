@@ -1,0 +1,7 @@
+<typeAliases>
+		<package name="com.company.onlineretailers.bean" />
+		
+	</typeAliases>
+	<mappers>
+		<package name="com.company.onlineretailers.mapper"/>  
+	</mappers> 
