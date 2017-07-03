@@ -1,0 +1,38 @@
+---
+title: 前端图表库.bak
+---
+早在以前金融股票类网站都有k线图，日线图等股市信息通过网页来展示，而现在依然有很多都采用这种方式给用户提供实时数据，由于大数据的兴起，前端的图表框架也出现了许多例如大家耳熟能详的来自国外的d3 chart.js highcharts 还有来自百度的echarts 等图表库来供给我们使用
+
+## Quick Start
+
+### Create a new post
+
+``` bash
+$ hexo new "My New Post"
+```
+
+More info: [Writing](https://hexo.io/docs/writing.html)
+
+### Run server
+
+``` bash
+$ hexo server
+```
+
+More info: [Server](https://hexo.io/docs/server.html)
+
+### Generate static files
+
+``` bash
+$ hexo generate
+```
+
+More info: [Generating](https://hexo.io/docs/generating.html)
+
+### Deploy to remote sites
+
+``` bash
+$ hexo deploy
+```
+
+More info: [Deployment](https://hexo.io/docs/deployment.html)

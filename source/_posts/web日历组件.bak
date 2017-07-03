@@ -1,0 +1,36 @@
+---
+title: web日历组件.bak
+---
+日历组件是一些网站必备的小东西，例如旅游网站要选择行程时间，购票网站乘车时间，日历组件千万种jquery的react的angular的等等，那么如何按照设计或者产品的要求来编写日历呢，have a look!
+
+
+### jquery 日历组件
+
+```  
+$ hexo new "My New Post"
+```
+jquery 的插件库提供多种日历组件
+
+### Run server
+
+``` bash
+$ hexo server
+```
+
+More info: [Server](https://hexo.io/docs/server.html)
+
+### Generate static files
+
+``` bash
+$ hexo generate
+```
+
+More info: [Generating](https://hexo.io/docs/generating.html)
+
+### Deploy to remote sites
+
+``` bash
+$ hexo deploy
+```
+
+More info: [Deployment](https://hexo.io/docs/deployment.html)

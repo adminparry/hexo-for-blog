@@ -1,0 +1,36 @@
+---
+title: js之类型转换.bak
+---
+只要有类型就避免不了数据类型之间的转换，因为有些时候一些方法所接受的参数不是你想要的类型，这个时候就需要数据的类型转换来完成你要达到目的的过程
+
+### Create a new post
+
+``` bash
+$ hexo new "My New Post"
+```
+
+More info: [Writing](https://hexo.io/docs/writing.html)
+
+### Run server
+
+``` bash
+$ hexo server
+```
+
+More info: [Server](https://hexo.io/docs/server.html)
+
+### Generate static files
+
+``` bash
+$ hexo generate
+```
+
+More info: [Generating](https://hexo.io/docs/generating.html)
+
+### Deploy to remote sites
+
+``` bash
+$ hexo deploy
+```
+
+More info: [Deployment](https://hexo.io/docs/deployment.html)

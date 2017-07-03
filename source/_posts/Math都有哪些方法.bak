@@ -1,0 +1,37 @@
+---
+title: Math都有哪些方法.bak
+---
+作为一门程序语言必定包含计算机最拿手的数学方法，而大部分都由Math提供，平方 立方 开方 三角函数 自然对数等等，在几何和代数问题上提供了强大的功能，而利用数学方法可以做到物理与计算机的配合，我们见到的大多数计算机物理呈现大多都是由数学方法所提供，尤其在游戏领域
+
+### Math 都有哪些属性
+
+``` bash
+$ hexo server
+```
+
+Math 不是一个构造方法
+
+### 判断物体移入的方向
+
+``` bash
+$ hexo new "My New Post"
+```
+
+More info: [Writing](https://hexo.io/docs/writing.html)
+
+
+### Generate static files
+
+``` bash
+$ hexo generate
+```
+
+More info: [Generating](https://hexo.io/docs/generating.html)
+
+### Deploy to remote sites
+
+``` bash
+$ hexo deploy
+```
+
+More info: [Deployment](https://hexo.io/docs/deployment.html)

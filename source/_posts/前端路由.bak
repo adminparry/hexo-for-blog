@@ -1,0 +1,71 @@
+---
+title: js设计模式
+---
+设计模式（Design pattern）是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。使用设计模式是为了可重用代码、让代码更容易被他人理解、保证代码可靠性。 毫无疑问，设计模式于己于他人于系统都是多赢的；设计模式使代码编写真正工程化；设计模式是软件工程的基石脉络，如同大厦的结构一样。
+
+
+### 工厂模式
+
+``` bash
+function Class(par){
+	//属性
+	this.prop = "function";
+	//参数
+	this.params = par;
+	//方法
+	this.method = function(){
+		return "do something"
+	}
+}
+
+```
+构造函数实际上就已经是工厂模式了
+工厂模式是创造对象的方式的一种也是面向对象编程方式的实现的一种
+
+### 单体模式
+
+``` bash
+function singlton(){
+	var name = "single dog";
+	return name;
+}
+```
+手动返回需要的东西的这种形式就已经构成了单体模式了
+单体模式非常适用于一种情形的生产，也体现出了职责单一原则
+
+### 模块模式
+
+``` bash
+var closure = (function(){
+	var private = 'private';
+	var getter = function(){
+		return private;
+	}
+	var setter = function(par){
+		private = par;
+	}
+	return null;
+})()
+```
+模块模式利用了匿名函数的作用域访问的问题
+实际上也就是个匿名函数
+
+### 代理模式
+
+``` bash
+var closure = (function(){
+	var private = 'private';
+	var getter = function(){
+		return private;
+	}
+	var setter = function(par){
+		private = par;
+	}
+	return null;
+})()
+```
+
+### 原型模式
+
+``` bash
+```

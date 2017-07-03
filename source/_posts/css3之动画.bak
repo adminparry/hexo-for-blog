@@ -1,0 +1,37 @@
+---
+title: js之运动.bak
+---
+运动，说到这先说人眼看到的运动的东西实际都是由眼球捕捉图像提供给大脑的，而计算机的方式也是如此，我们常常看到的视频都是由图像组成再根据人眼的频率由定时器来完成图像的更换速度，这就是运动
+
+
+### 定时器
+
+``` bash
+$ hexo new "My New Post"
+```
+
+More info: [Writing](https://hexo.io/docs/writing.html)
+
+### Run server
+
+``` bash
+$ hexo server
+```
+
+More info: [Server](https://hexo.io/docs/server.html)
+
+### Generate static files
+
+``` bash
+$ hexo generate
+```
+
+More info: [Generating](https://hexo.io/docs/generating.html)
+
+### Deploy to remote sites
+
+``` bash
+$ hexo deploy
+```
+
+More info: [Deployment](https://hexo.io/docs/deployment.html)

@@ -1,0 +1,38 @@
+---
+title: 浅谈mvvm.bak
+---
+web从1.0步入了2.0 从远久的form表单 再到ajax 从原来的jquery prototype等再到knockout angular vue 等
+
+## Quick Start
+
+### Create a new post
+
+``` bash
+$ hexo new "My New Post"
+```
+
+More info: [Writing](https://hexo.io/docs/writing.html)
+
+### Run server
+
+``` bash
+$ hexo server
+```
+
+More info: [Server](https://hexo.io/docs/server.html)
+
+### Generate static files
+
+``` bash
+$ hexo generate
+```
+
+More info: [Generating](https://hexo.io/docs/generating.html)
+
+### Deploy to remote sites
+
+``` bash
+$ hexo deploy
+```
+
+More info: [Deployment](https://hexo.io/docs/deployment.html)
