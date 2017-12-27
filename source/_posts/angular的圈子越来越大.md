@@ -3,6 +3,80 @@ title: angularjs的圈子越来越大
 ---
 angularjs著名的背景谷歌诞生于2009年，从12年开始mv*的框架渐渐的走进前端的流行区域，走进生产，随着线上逐渐增多，社区以及博客也变得越加丰富，这是每个优秀框架所必经的，而在现在使用的用户量也开始增长了
 
+## 脏检查机制
+
+``` bash
+<body>
+   <input type="text" />
+ 
+<a href="#" onclick="updateScopeValue();">Set input value to Bob</a>
+ 
+</body>
+<script type="text/javascript">
+
+var Scope = function( ) {
+    this.$$watchers = [];    
+};
+ 
+Scope.prototype.$watch = function( watchExp, listener ) {
+    this.$$watchers.push( {
+        watchExp: watchExp,
+        listener: listener || function() {}
+    } );
+};
+ 
+Scope.prototype.$digest = function( ) {
+    var dirty;
+ 
+    do {
+            dirty = false;
+ 
+            for( var i = 0; i < this.$$watchers.length; i++ ) {
+                var newValue = this.$$watchers[i].watchExp(),
+                    oldValue = this.$$watchers[i].last;
+ 
+                if( oldValue !== newValue ) {
+                    this.$$watchers[i].listener(newValue, oldValue);
+ 
+                    dirty = true;
+ 
+                    this.$$watchers[i].last = newValue;
+                }
+            }
+    } while(dirty);
+};
+ 
+ 
+var $scope = new Scope();
+ 
+$scope.name = 'Ryan';
+ 
+var element = document.querySelectorAll('input');
+ 
+element[0].onkeyup = element[0].onpaste =  element[0].onmouseenter= function() {
+	setTimeout(function(){
+
+		$scope.name = element[0].value;
+ 
+    	$scope.$digest();
+	})
+   
+};
+ 
+$scope.$watch(function(){
+    return $scope.name;
+}, function( newValue, oldValue ) {
+    console.log('Input value updated - it is now ' + newValue);
+     
+    element[0].value = $scope.name;
+} );
+ 
+var updateScopeValue = function updateScopeValue( ) {
+    $scope.name = 'Bob';
+    $scope.$digest();
+};
+</script>
+``` 
 ## 快速开始
 
 ### touch index.html

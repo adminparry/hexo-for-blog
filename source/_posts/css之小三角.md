@@ -76,7 +76,14 @@ body{
 	border-width: 7px;
 	margin-top:-7px;
 }
-
+.trans{
+	width: 0;height: 0;
+	border-left: 10px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 20px solid red;
+	
+	/*border-radius: 50%;*/
+}
 </style>
 </head>
 <body>
@@ -84,11 +91,80 @@ body{
 <div class="_left">
 	how are you!
 </div>
+
 <div class="_right">
 	speak chinese,please !
 </div>
+<style type="text/css">
+	.her,.me{
+		width: 200px;
+		height: auto;
+		padding: 20px;
+		margin: 40px;
+		position: relative;
+		border:1px solid;
+		border-radius: 4px;
+	}	
+	.her{
+		background: #ffffff;
 
-
+	}
+	/*这里需要注意的是border-width要写在下面*/
+	.her:before{
+		border: solid transparent;
+	    border-top: 5px solid transparent;
+	    border-bottom: 17px solid transparent;
+	    border-right: 26px solid black;
+	    content: " ";
+	    position: absolute;
+	    right: 100%;
+	    top: 50%;
+	    margin-top: -7px;
+	}
+	.her:after{
+		border: solid transparent;
+	    border-top: 4px solid transparent;
+	    border-bottom: 16px solid transparent;
+	    border-right: 25px solid white;
+	    content: " ";
+	    position: absolute;
+	    right: 100%;
+	    top: 50%;
+	    margin-top: -6px;
+	}
+	.me{
+		background: #99CC33;
+	}
+	.me:before{
+		border: solid transparent;
+	    border-top: 5px solid transparent;
+	    border-bottom: 17px solid transparent;
+	    border-left: 26px solid black;
+	    content: " ";
+	    position: absolute;
+	    left: 100%;
+	    top: 50%;
+	    margin-top: -7px;
+	}
+	.me:after{
+		border: solid transparent;
+	    border-top: 4px solid transparent;
+	    border-bottom: 16px solid transparent;
+	    border-left: 25px solid #99CC33;
+	    content: " ";
+	    position: absolute;
+	    left: 100%;
+	    top: 50%;
+	    margin-top: -6px;
+		
+	}
+</style>
+<div class="her">
+	can you help me?
+</div>
+<div class="me">
+	yes , i do
+</div>
 </body>
 </html>
 ```

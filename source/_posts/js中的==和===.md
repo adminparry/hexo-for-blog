@@ -3,13 +3,13 @@ title: js中的==和===
 ---
 在一些教程类的网站上并没有详细说明==和===的区别，即使有一些博客进行记录的其说明也大不相同，而由于运用的场景不同和js动态类型这个问题变得更加复杂让人难以琢磨
 
-## 快速开始
 
 ### 首先回顾数据类型
 原始值:
-空null 未定义undefined 字符串String 数字Number 布尔Boolean
+空null 未定义undefined 字符串String 数字Number(NaN) 布尔Boolean Symbol
 引用值:
-数组Array 对象Object 函数Function
+数组Array 对象Object(Math) 函数Function(Date,Symbol)
+null是一种特殊的object,NaN是一种特殊的number。
 
 其实这个问题很简单
 ==是转换类型后进行比较(准确的说是比较原始值)
@@ -22,9 +22,11 @@ undefined == null
 
 //false 引用地址不一致
 undefined === null
+[] === ![]
+
 
 //false
-//因为这两个都是一个新的引用
+//因为这两个对象都是一个新的引用
 [] === []
 
 //true
@@ -35,15 +37,38 @@ arr === arr;
 //true
 <!-- 转化类型  [].valueOf().toString() -->
 [] == false
-//容易混淆 
+//容易混淆 当引用类型与原始值类型比较时
+
 <!-- Boolean([]) -->
 if([]){
 	alert("执行")
 }
-//false
-[] === ![]
-```
+<!-- 执行 -->
 
+<!-- 所有的引用类型转化为原始值都是true -->
+!![] == false 
+<!-- false -->
+
+//false
+[] == ![]
+//![] 同样为布尔值[].valueOf().toString()返回""为false取反为true
+
+{} == []
+[] == []
+// 双等比较两个不同引用对象是永远为false的
+
+```
+### 比较不同引用的两个对象
+
+``` bash
+function cmp( x, y ) {
+	if(x == y){
+		return true;
+	}
+
+}
+
+```
 ECMAScript 原始值和引用值
 在 ECMAScript 中，变量可以存在两种类型的值，即原始值和引用值。
 原始值

@@ -31,6 +31,9 @@ $ touch index.html
 ### 编写js文件
 
 ``` bash
+<script type="text/javascript">
+	
+
 //通常意义这样的数据结构提供给我们作为树形菜单的结构
 var arr = [
 	{name:'技术部',
@@ -123,5 +126,6 @@ var arr = [
 			}
 		}
 	}
+</script>
 ```
 

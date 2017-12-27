@@ -38,5 +38,11 @@ title: js中的真与假及隐式转化
 0 === false //=> false
 
 ```
+### 比较运算符中
+
+``` bash
+<!-- -1 > -2 return true true > 0 1 > 0 return true -->
+-1 > -2 > 0 //=> true
 
 
+```

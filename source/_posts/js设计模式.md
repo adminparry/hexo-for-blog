@@ -33,7 +33,7 @@ var singlton = {
 		var name = "single dog";
 		return name;
 	}
-	
+	 
 }
 ```
 
@@ -185,29 +185,44 @@ hook.trigger('a',[1,3,5,4,3,3,4,4,3,3,34,3,4,5,5,4,3,3,3,4,5,5]);
 
 ### 迭代器模式
 
-``` bash
-var arr = [1,32,4,6,7,5,4];
-function iterator(arr){
-	this.arr = arr;
-	this.length = arr.length;
-	this.index = 0;
-}
-iterator.prototype.hasNext = function(){
-	return this.index < this.length;
-}
-iterator.prototype.next = function(){
-	return this.arr[this.index++]
-}
-var tor = new iterator(arr);
+1、访问一个聚合对象的内容而无须暴露它的内部表示。 2、需要为聚合对象提供多种遍历方式。 3、为遍历不同的聚合结构提供一个统一的接口。
 
-while(tor.hasNext()){
-	console.log(tor.next())
-}
+``` bash
+<script type="text/javascript">
+	
+	var arr = [1,32,4,6,7,5,4];
+
+	function iterator(arr){
+		this.arr = arr;
+		this.length = arr.length;
+		this.index = 0;
+	}
+	iterator.prototype.hasNext = function(){
+		return this.index < this.length;
+	}
+	iterator.prototype.next = function(){
+		return this.arr[this.index++]
+	}
+	var tor = new iterator(arr);
+
+	while(tor.hasNext()){
+		console.log(tor.next())
+	}
+</script>
 	
 ```
 ### 外观模式
 
+使用一个方法去内部执行多个需要调用的方法
+
 ``` bash
+<script type="text/javascript">
+	function preventAndBubble(ev){
+		ev.stopPropergation();
+		ev.preventDefault();
+	}
+
+</script>
 	
 ```
 
@@ -219,44 +234,89 @@ while(tor.hasNext()){
 
 ### 策略模式
 
+ 1、如果在一个系统里面有许多类，它们之间的区别仅在于它们的行为，那么使用策略模式可以动态地让一个对象在许多行为中选择一种行为。 2、一个系统需要动态地在几种算法中选择一种。 3、如果一个对象有很多的行为，如果不用恰当的模式，这些行为就只好使用多重的条件选择语句来实现。
+
 ``` bash
-	
+<script type="text/javascript">
+	/*
+ * 缓动算法: 接收4个参数，分别表示： 动画已消失的时间， 小球原始位置， 小球目标位置， 动画持续的总时间
+ */
+var tween = {
+    linear: function(t, b, c, d){
+        return c*t/d + b;
+    },
+    easeIn: function(t, b, c, d){
+        return c * ( t /= d ) * t + b;
+    },
+    strongEaseIn: function(t, b, c, d){
+        return c * ( t /= d ) * t * t * t * t + b;
+    },
+    strongEaseOut: function(t, b, c, d){
+        return c * ( ( t = t / d -1 ) * t * t * t * t + 1 ) + b;
+    },
+    sineaseIn: function(t, b, c, d){
+        return c * ( t /= d ) * t * t + b;
+    },
+    sineaseOut: function(t, b, c, d){
+        return c * ( ( t = t / d -1 ) * t * t + 1 ) +b;
+    }
+};
+</script>	
 ```
 
 ### 建造者模式
 
+1、需要生成的对象具有复杂的内部结构。 2、需要生成的对象内部属性本身相互依赖。
+
 ``` bash
-var product = {
-	makeMoney:null
-}
-function Company(){
-	this.production = function(user){
+<script type="text/javascript">
+	function dom(ele){
+		this.ele = ele;
 		
-		user.eat();
-		user.drink();
-		user.sleep();
-
-		return user.code();
 	}
-}
-function I(){
-	this.eat = function(){
-
-	}
-	this.drink = function(){
-
-	}
-	this.sleep = function(){
-
-	}
-	this.code = function(){
+	dom.prototype.getClass = function(){
+		this.curClass = this.ele.className.match(/\S+/g);
+	
+		var json = {};
 		
-		product.makeMoney = true;
-		return product;
-	}
-}
+		
+		this.curClass.forEach(function(item,index){
+			json[item] = index;
+		})
 
-new Company().production(new I)
+		return json;
+	}
+	dom.prototype.addClass = function(str){
+		
+		var has = this.hasClass(str);
+
+		this.ele.className = this.curClass.concat(this.uncommon).join(' ')
+
+	}
+	dom.prototype.hasClass = function(str){
+		var arr = str.match(/\S+/g);
+		
+		var common = [];
+		var uncommon = [];
+		var json = this.getClass();
+
+		arr.forEach(function(item,index){
+			if(item in json){
+				common.push(item);
+			}else{
+				uncommon.push(item);
+			}
+		})
+		this.common = common;
+		this.uncommon = uncommon;
+
+		return common.length > 0 ? false : true;
+	}
+	dom.prototype.removeClass = function(str){
+		//...
+	}
+</script>
+
 ```
 ### 原型模式
 
@@ -281,7 +341,7 @@ function clone(obj){
 	return ret;
 }
 ```
-
+http://www.cnblogs.com/tugenhua0707/p/5198407.html
 
 
 

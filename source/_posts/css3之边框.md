@@ -1,0 +1,50 @@
+---
+title: css3之边框
+---
+
+
+
+### 页面底部信息
+
+``` bash
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing:border-box;
+    }
+    html,body { height: 100%;}
+    header { 
+        height: 60px; 
+        margin-bottom: -60px; 
+        background: #1381cc; 
+        color: #FFF; 
+        position: relative;
+    }
+    section { 
+        background: #fff; 
+        min-height: 100%; 
+        padding: 60px 0 60px;}
+    footer { 
+        height:60px; 
+        margin-top: -60px; 
+        background: #0c4367; 
+        color: #FFF;
+    }
+    
+</style>
+<body>
+    <header></header>
+    <section class="content">
+        <div style="height:1000px;"></div>
+    </section>
+    <footer class="footer">footer始终处在底部</footer>
+</body>
+</html>
+```

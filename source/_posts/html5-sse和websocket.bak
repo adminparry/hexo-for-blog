@@ -1,8 +1,9 @@
 ---
-title: cookie与session
+title: web直播的猜想.bak
 ---
-开始接触cookie与session的时候大部分人都有这种感觉，cookie和session是有关系的，而不知道两者具体是什么关系，cookie是储存在用户本地终端上的数据，而session是储存在服务器上的数据，两者的关系是一一映射的套接对应关系
+Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
+## Quick Start
 
 ### Create a new post
 
