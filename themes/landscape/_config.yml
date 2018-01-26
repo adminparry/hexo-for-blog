@@ -14,8 +14,11 @@ background-root: /blog/images/background/
 background: [ 1.jpg, 2.jpg, 3.jpg ]
 
 avatar: /images/avatar.gif
+baidu_analytics: e418ba3055c628bbdc7ef7f841b12ab8
 
 #### Comment
+disqus:
+  short_name: adminparry
 duoshuo: 
   short_name: YOUR_DUOSHUO_SHORT_NAME    ## duoshuo short name.
                                          ## refer to http://dev.duoshuo.com/docs/501e6ce1cff715f71800000d
