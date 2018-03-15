@@ -1,5 +1,5 @@
 ---
-title: js之数字
+title: js之浮点数
 -
 对于计算机开发者而言，数字是你不得不面对的问题，所有的语言对数字都有处理，对于开发者的代码来说数字大多是以10进制
 
@@ -31,6 +31,14 @@ title: js之数字
 ```
 在 JavaScript 中整数和浮点数都属于 Number 数据类型，所有数字都是以 64 位浮点数形式储存，即便整数也是如此。 所以我们在打印 1.00 这样的浮点数的结果是 1 而非 1.00 。
 
+### 简单解决问题
+``` bash
+<script type="text/javascript">
+	parseFloat((0.1*0.1).toFixed(12)) //0.01
+</script>
+```
+
+### 依赖于第三方类库
 
 https://github.com/dt-fe/number-precision
 

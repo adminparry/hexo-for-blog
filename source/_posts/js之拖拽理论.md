@@ -35,44 +35,47 @@ touch index.html
 ### 编写脚本
 
 ``` bash
-function Drag(box){
-	this.box = box;
-	this.init();
+<script type="text/javascript">
+	function Drag(box){
+		this.box = box;
+		this.init();
 
-}
-
-Drag.prototype.init = function(){
-	var self = this;
-
-	this.box.onmousedown = function(ev){
-		var oEvent = ev || event;
-		<!-- 记录当前的偏移量 -->
-		self.disX = oEvent.clientX - self.box.offsetLeft;
-		self.disY = oEvent.clientY - self.box.offsetTop;
-		console.log(self.disX,self.disY)
-		document.onmousemove = function(ev){
-			self.move(ev);
-		}
-		document.onmouseup = function(){
-			document.onmousemove = null;
-			document.onmouseup = null;
-			<!-- 为了ie的捕获 -->
-			self.box.releaseCapture && self.box.releaseCapture();
-		}
-		
-		<!-- 为了ie的捕获 -->
-		self.box.setCapture && self.box.setCapture();
-		<!-- 阻止默认事件 -->
-		return false;
 	}
-}
-Drag.prototype.move = function(ev){
-	var self = this;
-	var oEvent = ev || event;
-	<!-- 与偏移量之差 -->
-	self.box.style.left =  oEvent.clientX - self.disX +'px';
-	self.box.style.top =  oEvent.clientY - self.disY +'px';
-}
-new Drag(document.getElementById('drag'))
+
+	Drag.prototype.init = function(){
+		var self = this;
+
+		this.box.onmousedown = function(ev){
+			var oEvent = ev || event;
+			<!-- 记录当前的偏移量 -->
+			self.disX = oEvent.clientX - self.box.offsetLeft;
+			self.disY = oEvent.clientY - self.box.offsetTop;
+			console.log(self.disX,self.disY)
+			document.onmousemove = function(ev){
+				self.move(ev);
+			}
+			document.onmouseup = function(){
+				document.onmousemove = null;
+				document.onmouseup = null;
+				<!-- 为了ie的捕获 -->
+				self.box.releaseCapture && self.box.releaseCapture();
+			}
+			
+			<!-- 为了ie的捕获 -->
+			self.box.setCapture && self.box.setCapture();
+			<!-- 阻止默认事件 -->
+			return false;
+		}
+	}
+	Drag.prototype.move = function(ev){
+		var self = this;
+		var oEvent = ev || event;
+		<!-- 与偏移量之差 -->
+		self.box.style.left =  oEvent.clientX - self.disX +'px';
+		self.box.style.top =  oEvent.clientY - self.disY +'px';
+	}
+	new Drag(document.getElementById('drag'))
+</script>
+
 ```
 

@@ -14,6 +14,6 @@ https://www.heidisql.com/
 ![HeidiSQL](/blog/images/window_sql/home.jpg)
 ### 主界面
 
-![HeidiSQL](/blog/images/versions/index.jpg)
+![HeidiSQL](/blog/images/window_sql/index.jpg)
 
 

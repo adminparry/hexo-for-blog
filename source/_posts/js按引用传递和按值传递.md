@@ -5,7 +5,6 @@ title: js按引用传递和按值传递
 
 ### 基本类型按值传递
 
-
 ``` bash
 <script type="text/javascript">
 	
@@ -19,7 +18,7 @@ title: js按引用传递和按值传递
 	console.log(a)//a没有被改变
 </script>
 
-``` 
+```
 ### 引用类型按引用传递
 
 ``` bash
@@ -35,7 +34,7 @@ title: js按引用传递和按值传递
 	console.log(a)//a被改变
 </script>
 
-``` 
+```
 
 
 

@@ -8,6 +8,7 @@ ES6从开始制定到最后发布，整整用了15年。
 2013年3月，ECMAScript 6草案冻结，不再添加新功能。新的功能设想将被放到ECMAScript 7。
 2013年12月，ECMAScript 6草案发布。然后是12个月的讨论期，听取各方反馈。
 2015年6月，ECMAScript 6正式通过，成为国际标准。从2000年算起，这时已经过去了15年。
+
 ### 箭头函数
 ``` bash
 <script type="text/javascript">
@@ -199,10 +200,6 @@ var {foo:{bar}} = {ba: 2};   //报错
 </script>
 ```
 
-### Symbol
-``` bash
-
-```
 ### 正则的扩展
 
 修饰符	描述	描述
@@ -243,6 +240,12 @@ y	sticky	粘连模式
 		return item;
 	},context)
 	console.log(mapResult)//返回值为 arr
+	// from
+	function noop(){
+		var arg = Array.from(arguments);
+		console.log(arg)
+	}
+	noop(1,23,4,5,6,7,89)
 	// copyWithin
 	// entries
 	// every
@@ -295,12 +298,219 @@ y	sticky	粘连模式
 ``` bash
 
 ```
-### Proxy和Reflect
+### Reflect(反射)
 
+Reflect 是一个内置的对象，它提供拦截 JavaScript 操作的方法。这些方法与处理器对象的方法相同。Reflect不是一个函数对象，因此它是不可构造的
+
+
+apply
 ``` bash
+<script type="text/javascript">
+	// apply
+	Reflect.apply(Math.floor, undefined, [1.75]) // 1
+	// 相当于
+	Function.prototype.apply.call(Math.floor, undefined, [1.75]) // 1
+</script>
+```
+construct
+``` bash
+<script type="text/javascript">
+	// construct
+	class Aniaml {
+		constructor(a){
+			this.age = a;
+		}
+	}
+	Reflect.construct(Aniaml, [2])
+	// 相当于
+	new Aniaml(2);
+</script>
+```
+defineProperty
+``` bash
+<script type="text/javascript">
+	// defineProperty
+	var obj = {
+		no:'no',
+		yes:'yes'
+	}
+	var ret1 = Reflect.defineProperty(obj,'no',{
+		get:()=>'no no no'
+	})
+	// 相当于
+	var ret2 = Object.defineProperty(obj,'no',{
 
+	})
+	// 但是返回值不同
+	console.log(ret1,ret2);
+	console.log(obj.no);
+
+</script>
+```
+deleteProperty
+``` bash
+<script type="text/javascript">
+	// deleteProperty
+	var obj = {
+		name:'everyBody'
+	}
+	var ret = Reflect.deleteProperty(obj,'name');
+	// 相当于
+	delete obj['name'];
+
+	console.log(obj);
+
+</script>
+```
+has
+``` bash
+<script type="text/javascript">
+	// has
+	var obj = {
+		name:'everyBody'
+	}
+	var ret = Reflect.has(obj,'name');
+	// 相当于
+	'name' in obj;
+
+	console.log(ret);
+</script>
 ```
 
+set
+``` bash
+<script type="text/javascript">
+	// set
+	var obj = {
+		name:'everyBody'
+	}
+	var ret = Reflect.set(obj,'name','es6');
+
+	console.log(ret);
+
+	// 相当于
+	obj['name'] = 'es3';
+
+	
+</script>
+```
+ownKeys
+``` bash
+<script type="text/javascript">
+// ownKeys
+	var myObject = {
+	  foo: 1,
+	  bar: 2,
+	  [Symbol.for('baz')]: 3,
+	  [Symbol.for('bing')]: 4,
+	};
+	var ret = Reflect.ownKeys(myObject);
+	// 相当于
+	Object.getOwnPropertyNames(myObject).concat(Object.getOwnPropertySymbols(myObject));
+
+	console.log(ret)
+</script>
+```
+### Proxy(代理)
+
+用来定义一个代理对象其对象的属性为自定义方法进行控制
+
+
+``` bash
+<script type="text/javascript">
+	var proxy = new Proxy({},{
+	  get: function(target, key){
+	    return 35;
+	  }
+	});
+	console.log(proxy.time);    //35
+	console.log(proxy.name);    //35
+	console.log(proxy.title);    //35
+	//被代理的对象无论输入什么属性都返回35
+</script>
+```
+proxy 对象也可以被继承
+
+``` bash
+<script type="text/javascript">
+	var proxy = new Proxy({},{
+	  get: function(target, key){
+	    return 35;
+	  }
+	});
+	var obj = Object.create(proxy);
+	obj.time = 20;
+	console.log(obj.time);    //20
+	console.log(obj.name);    //35
+</script>
+
+```
+get(target, propKey, receiver = target) 
+拦截对象的读取属性。当 target 对象设置了 propKey 属性的 get 函数时，receiver 绑定 get 函数的 this。返回值任意
+set(target, propKey, value, receiver = target) 
+拦截对象的写入属性。返回一个布尔值
+has(target, propKey) 
+拦截 propKey in proxy 操作符，返回一个布尔值
+deleteProperty(target, propKey) 
+拦截 delete proxy[propKey] 操作符，返回一个布尔值
+enumerate(target) 
+拦截 for(let i in proxy) 遍历器，返回一个遍历器
+hasOwn(target, propKey) 
+拦截 proxy.hasOwnProperty(‘foo’)，返回一个布尔值
+ownKeys(target) 
+拦截 Object.getOwnPropertyNames(proxy), Object.getOwnPropertySymbols(proxy), Object.keys(proxy)，返回一个数组。该方法返回对象所有自身属性，包括不可遍历属性，不包括 Symble属性，但是Object.keys(proxy)不应该包括不可遍历属性
+getOwnPropertyDescriptor(target, propKey) 
+拦截 Object.getOwnPropertyDescriptor(proxy, propKey)，返回其属性描述符
+defineProperty(target, propKey, propDesc) 
+拦截 Object.defineProperty(proxy, propKey, propDesc), Object.defineProperties(proxy, propDesc)，返回一个布尔值
+preventExtensions(target) 
+拦截 Object.preventExtensions(proxy)，返回一个布尔值
+getPrototypeOf(target) 
+拦截 Object.getPrototypeOf(proxy)，返回一个对象
+isExtensible(target) 
+拦截 Object.isExtensible(proxy)，返回一个布尔值
+setPrototypeOf(target, proto) 
+拦截 Object.setPrototypeOf(proxy, proto)，返回一个布尔值
+apply(target, object, args) 
+拦截对 proxy 实例的函数操作，包括 proxy(…args),proxy.call(object, …args),proxy.apply(object, args)
+construct(target, args, proxy) 
+拦截用 new 调用 proxy 函数的操作，construct()返回的不是对象会报错
+
+``` bash
+<script type="text/javascript">
+	var obj = new Proxy({}, {
+	  get: function(target, key, receiver){
+	    console.log(`getting ${key} ...`);
+	    return Reflect.get(target, key, receiver);
+	  },
+	  set: function(target, key, value, receiver){
+	    console.log(`setting ${key} ...`);
+	    return Reflect.set(target, key, value, receiver);
+	  }
+	});
+
+	obj.count = 1;            //setting count ...
+	++obj.count;              //getting count ...
+	                          //setting count ...
+	console.log(obj.count);   //getting count ...
+	                          //2
+</script>
+
+
+让Object操作都变成函数行为(替代行为)
+
+``` bash
+<script type="text/javascript">
+	var json = {
+		name:'hanmeimei',
+		age:76
+	}
+	console.log('name' in json); //true
+	console.log(Reflect.has(Object, 'name'))
+</script>
+```
+
+```
 ### Set和Map数据结构
 
 ``` bash
@@ -361,6 +571,9 @@ y	sticky	粘连模式
 
 ``` bash
 
+```
+### ArrayBuffer
+``` bash
 ```
 http://blog.csdn.net/faremax/article/details/73480861
 

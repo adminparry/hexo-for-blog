@@ -1,5 +1,5 @@
 ---
-title: 说说reactNative
+title: reactNative
 ---
 说说前端框架的新宠react，reactNative是react的其中的一个分支，自从react别众人周知以来，就有大量前端开发者去真正的去运用到项目开发之中，react真正想完善的其实就是reactNative，它在内部帮助我们去做与ios Android的接口桥，使得前端开发人员也可以做原生的ios Android开发，前端已经从一个最简单的工作变成了最丰富的工作
 

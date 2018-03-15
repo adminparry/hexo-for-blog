@@ -4,6 +4,7 @@ title: css之小三角
 小三角这个元素无论在web网站或者app移动应用，都有很广泛的使用，比如说什么宝，什么汇，什么街之类的都有，还有微信啊qq啊基本都有，这个样式很常见，用的挺多的，所以记录一下
 
 
+![transparent](/blog/images/transparent/transparent.png)
 ### 代码示例
 
 ``` bash

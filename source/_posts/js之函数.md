@@ -1,21 +1,71 @@
 ---
-title: js之函数啊函数
+title: js之函数
 ---
-一门编程语言除了函数就是数据结构了，所以函数这个概念理解清楚的前提下你已经掌握了80%左右了
 
-### 声明
+### 显式声明和隐式声明
+
+显式声明中按照变量提升的方式进行
+``` bash
+<script type="text/javascript">
+	var a = function(){
+		alert('a');
+	}
+	var b = function(){
+		alert('b')
+	}
+	// 解释器理解如下
+	var a,b;
+	a=function(){
+		alert('a');
+	}
+	b=function(){
+		alert('b')
+	}
+</script>
+```
+隐式声明告诉我们函数是第一等公民
+
+这个例子很容易的告诉我们显式在隐式之后
+
 ``` bash
 <script type="text/javascript">
 	/*显式声明*/
-	var bbb = function(){
-
+	var aaa = function(){
+		alert('显式')
 	}
 	/*隐式声明*/
 	function aaa(){
-
+		alert('隐式')
 	}
+
+	aaa();//显式
+
+	//解释器理解如下
+	
+	function aaa(){
+		alert('隐式')
+	}
+	var aaa;
+	aaa = function(){
+		alert('显式')
+	}
+	aaa();
 </script>
 ``` 
+
+区别
+``` bash
+<script type="text/javascript">
+	a(); //function
+	var a = function(){
+	    alert('var') 
+	}
+	function a(){
+	    alert('function')
+	}
+	a();//var
+</script>
+```
 ### 调用
 ``` bash
 <script type="text/javascript">
@@ -28,7 +78,7 @@ title: js之函数啊函数
 	aaa.apply();
 </script>
 ``` 
-### 名字和被调用的人
+### name和caller和length
 ``` bash
 <script type="text/javascript">
 	function aaa(){
@@ -41,6 +91,7 @@ title: js之函数啊函数
 	}
 	bbb();
 	console.log(bbb.name)//函数的名字 如果是匿名函数为空字符串
+	console.log(bbb.length)//函数形参的个数 
 </script>
 ```
 ### 参数
@@ -90,8 +141,9 @@ title: js之函数啊函数
 </script>
 ``` 
 
-### 实现一个add函数
+### toString
 
+函数在取值动作时会默认调用toString方法
 
 ``` bash
 <!-- 要求使用的方式为add(1)(2)(3)... 最后得出结果 -->

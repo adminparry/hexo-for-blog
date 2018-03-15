@@ -61,33 +61,36 @@ $ touch index.html
 ### 添加事件
 
 ``` bash
-<!-- 获取所有的div给个随机颜色看看 -->
-var div = document.getElementsByTagName('div');
-for (var i = 0; i < div.length; i++) {
-
-	var rgb = [(Math.random()*255).toFixed(0),(Math.random()*255).toFixed(0),(Math.random()*255).toFixed(0)];
-	
-	div[i].style.background = 'rgb('+rgb.join(',')+')';
-
-}
-<!-- 获取所有的class为box的元素 -->
-var div = document.getElementsByClassName('box');
-<!-- 初始化初次加载执行 -->
-_scroll();
-window.onscroll = _scroll;
-<!-- 设置样式 -->
-function setCss3(ele){
-	ele.style.transform = 'translateY(0px)';
-	ele.style.opacity = '1';
-	ele.style.WebkitTransform = 'translateY(0px)';
-}
-<!-- 绑定事件 -->
-function _scroll(){
+<script type="text/javascript">
+	<!-- 获取所有的div给个随机颜色看看 -->
+	var div = document.getElementsByTagName('div');
 	for (var i = 0; i < div.length; i++) {
+
+		var rgb = [(Math.random()*255).toFixed(0),(Math.random()*255).toFixed(0),(Math.random()*255).toFixed(0)];
 		
-		if(document.body.scrollTop+document.documentElement.clientHeight> div[i].offsetTop){
-			 setCss3(div[i]);
+		div[i].style.background = 'rgb('+rgb.join(',')+')';
+
+	}
+	<!-- 获取所有的class为box的元素 -->
+	var div = document.getElementsByClassName('box');
+	<!-- 初始化初次加载执行 -->
+	_scroll();
+	window.onscroll = _scroll;
+	<!-- 设置样式 -->
+	function setCss3(ele){
+		ele.style.transform = 'translateY(0px)';
+		ele.style.opacity = '1';
+		ele.style.WebkitTransform = 'translateY(0px)';
+	}
+	<!-- 绑定事件 -->
+	function _scroll(){
+		for (var i = 0; i < div.length; i++) {
+			
+			if(document.body.scrollTop+document.documentElement.clientHeight> div[i].offsetTop){
+				 setCss3(div[i]);
+			}
 		}
 	}
-}
+</script>
+
 ```

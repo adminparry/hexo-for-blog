@@ -1,69 +1,106 @@
 ---
-title: 二分查找，冒泡排序，快速排序
+title: js排序算法
 ---
-在这里列出劳动人民的智慧，也算是网上公认的了，了解这些最基本的概念之后会给你以后程序设计带来一定的灵感和借鉴，就不多说了
 
-## 快速开始
-
-### 数组去重
-
-### 正常数组去重
-
+## 插入排序
 ``` bash
 <script type="text/javascript">
-	var arr,uniqueArr;
-	arr = [2,4,5,5,556,3,23,2,32,4,6,7,7]
-	uniqueArr = arr.filter(function(item,index, all){
-			return all.indexOf(item) == index;
-		})
-	console.log(uniqueArr);
-</script>
-```
 
-数组拥有indexOf方法的时候
-``` bash
-<script type="text/javascript">
-	function unique(array){
-		var arr = [];
-		for (var i = 0; i < array.length; i++) {
-			if(arr.indexOf(array[i]) == -1){
-				arr.push(array[i])
+	function insertSort(arr){
+		var len = arr.length;
+		for(var i=1;i<len;i++){
+			var item = arr[i];
+			var j = i -1;
+			while(j>=0 && arr[j] > item){
+				arr[j+1] = arr[j];
+				j--;
 			}
+			arr[j + 1] = item;
 		}
-		return arr;
 	}
+
 </script>
 ```
-利用对象键的方式
-在这里需要注意的是数组中的元素有字符串也有数字和undefined 比如 1 和 "1"
+
+
+### 二分插入排序
+
 ``` bash
 <script type="text/javascript">
-	function unique(array){
-		var json = {};
-		var arr = [];
-
-		for (var i = 0; i < array.length; i++) {
-			var item = array[i];
-			var type = typeof item;
-
-			if(!json.item){
-				json.item = type;
-				arr.push(item)
-			}else{
-				if(json.item == type){
-					// 类型也一样的就不要了
+	function binarySort(arr){
+		var len = arr.length;
+		for(var i = 1;i<len;i++){
+			var item = arr[i],left = 0,right = i -1;
+			while(left <= right){
+				var mid = Math.floor((left + right) / 2);
+				if(key < arr[mid]){
+					right = mid - 1;
 				}else{
-					arr.push(item)
-				}	
+					left = mid + 1;
+				}
 			}
-			
+			for(var j = i-1;j >= left;j--){
+				arr[j+1] = arr[j]
+			}
+			arr[left] = key;
 		}
+		
 		return arr;
 	}
 </script>
 ```
-利用排序相邻去重
-重复是去掉了 但是原有的数组顺序不保证
+
+### 快速排序
+``` bash
+<script type="text/javascript">
+	function quickSort(arr){
+		if(arr.length < 2)return arr;
+
+		var pivotIndex = Math.floor(arr.length / 2);
+		var pivot = arr.splice(pivotIndex,1)[0];
+
+		var left = [],right=[];
+		for(var i = 0;i < arr.length;i++){
+			if(arr[i] > pivot){
+				right.push(arr[i]);
+			}else{
+				left.push(arr[i]);
+			}
+		}
+		return quickSort(left).concat([pivot],quickSort(right));
+	}
+</script>
+```
+### 冒泡排序
+
+内层循环过程中拿出最小的与外层循环当前的元素进行交换
+例如[3,5,6,7,1,32]
+外层 i=0 => 3
+内层 把[5,6,7,1,32]中最小的元素与当前外层进行交换
+[1,5,6,7,3,32]
+
+外层 i=1 => 5
+内层 把[6,7,3,32]中最小的元素与当前外层进行交换
+[1,3,6,7,5,32]
+
+重复动作
+
+``` bash
+<script type="text/javascript">
+	function bubbleSort(arr){
+		for (var i = 0; i < arr.length; i++) {
+			for (var j = i+1;j < arr.length; j++) {
+				if(arr[i] > arr[j]){
+					[arr[i],arr[j]] = [arr[j],arr[i]]
+				}
+			}
+		}
+		return arr;
+	}
+
+</script>
+```
+### 选择排序
 ``` bash
 <script type="text/javascript">
 	function unique(array){

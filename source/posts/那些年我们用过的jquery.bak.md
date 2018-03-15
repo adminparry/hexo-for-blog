@@ -1,5 +1,5 @@
 ---
-title: 那些年我们用过的jquery.bak
+title: 那些年我们用过的jquery
 ---
 如果说你没听过jquery那你应该是刚入行的前端或者没有接触过JavaScript，当年诞生过无数jquery爱好者，以至于jquery都成了JavaScript的标配了，先说一下jquery的作者John Resig查克·诺里斯，美国著名武术家，世界著名空手道巨星，他更喜欢别人称他为空手道大师而不是编程高手
 

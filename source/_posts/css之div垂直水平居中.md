@@ -23,7 +23,11 @@ $ touch index.html
 		.center{
 			width: 200px;height: 200px;background: red;margin-left: -100px;margin-top: -100px;position: absolute;left: 50%;top: 50%;
 		}
-	
+		.center{
+			width: 200px;height: 200px;background: red;transform: translate(-50%, -50%);position: absolute;left: 50%;top: 50%;
+		}
+
+		
 		
 	</style>
 </head>

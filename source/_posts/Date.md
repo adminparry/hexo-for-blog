@@ -1,10 +1,10 @@
 ---
-title: Date
+title: web日历组件
 ---
+日历组件是一些网站必备的小东西，例如旅游网站要选择行程时间，购票网站乘车时间，日历组件千万种jquery的react的angular的等等，那么如何按照设计或者产品的要求来编写日历呢，have a look!
 
-https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date
 
-### 日历组件
+### Date
 
 ``` bash
 <script type="text/javascript">
