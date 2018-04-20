@@ -76,6 +76,7 @@ title: js之函数
 	aaa();
 	aaa.call();
 	aaa.apply();
+	new Function('aaa()')();
 </script>
 ``` 
 ### name和caller和length

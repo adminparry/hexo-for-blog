@@ -3,12 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "hexo": {
-    "version": "3.2.2"
+    "version": "3.5.0"
   },
   "scripts": {
-    "s":"hexo s",
-    "c":"hexo clean",
-    "d":"hexo d"
+    "s": "hexo s",
+    "c": "hexo clean",
+    "d": "hexo d"
   },
   "dependencies": {
     "adaro": "^1.0.4",

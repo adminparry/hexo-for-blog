@@ -1,0 +1,55 @@
+.thread-route {
+	font-size: 0.8rem;
+	color: #A7ABBB;
+	height: 2.25rem;
+	background-color: #F7F9FF;
+	padding-left: 0.75rem;
+	position: relative;
+	.name {
+		color: #316BFD;
+		line-height: 2.25rem;
+		padding-left: 0.5rem;
+	}
+	.arrow {
+		width: 0.45rem;
+		height: 0.75rem;
+		position: absolute;
+		top: 0.75rem;
+		right: 0.75rem;
+	}
+	.arrow:after, .arrow:before {
+		content: ' ';
+		width: 0;
+		height: 0;
+		position: absolute;
+		border: solid transparent;
+	}
+	.arrow:after {
+		border-width: 0.35rem;
+		border-left-color: #F7F9FF;
+		top: 0.0445rem;
+	}
+	.arrow:before {
+		border-width: 0.39rem;
+		border-left-color: #A7ABBB;
+	}
+}
+.thread-begin {
+
+	background-color: #FFF;
+	padding: 1.5rem 0.75rem;
+	.subject {
+		color: #28282D;
+		font-weight: bold;
+		font-size: 1rem;
+		line-height: 1.5rem;
+		text-align: justify;
+		a {
+			color: #316BFD;
+			font-size: 0.65rem;
+			font-weight: normal;
+			white-space: nowrap;
+			padding-left: 0.5rem;
+		}
+	}
+}

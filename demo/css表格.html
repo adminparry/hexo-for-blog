@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		table.dataintable {
+			margin-top: 15px;
+			border-collapse: collapse;
+			border: 1px solid #aaa;
+			width: 100%;
+		}
+		table.dataintable tr:nth-child(odd) {
+		    background-color: #F5F5F5;
+		}
+		table.dataintable td {
+		    vertical-align: text-top;
+		    padding: 6px 15px 6px 6px;
+		    border: 1px solid #aaa;
+		}
+		table.dataintable th {
+		    vertical-align: baseline;
+		    padding: 5px 15px 5px 6px;
+		    background-color: #3F3F3F;
+		    border: 1px solid #3F3F3F;
+		    text-align: left;
+		    color: #fff;
+		}
+
+		.table {
+			display: table;
+		}
+		.table .tr{
+			display: table-row;
+		}
+		.table .tbody{
+			display: table-row-group;
+		}
+		.table .td,.table .th{
+			display: table-cell;
+		}
+		
+		.table  {
+			margin-top: 15px;
+			border-collapse: collapse;
+			border: 1px solid #aaa;
+			width: 100%;
+		}
+
+
+		.table .tr:nth-child(odd) {
+		    background-color: #F5F5F5;
+		}
+		.table .td {
+		    vertical-align: text-top;
+		    padding: 6px 15px 6px 6px;
+		    border: 1px solid #aaa;
+		}
+		
+		.table .th {
+
+		    vertical-align: baseline;
+		    padding: 5px 15px 5px 6px;
+		    background-color: #3F3F3F;
+		    border: 1px solid #3F3F3F;
+		    text-align: left;
+		    color: #fff;
+		}
+	</style>
+</head>
+<body>
+<div class="table">
+	<div class="tbody">
+	<div class="tr">
+		<div class="th">值</div>
+		<div class="th">描述</div>
+	</div>
+
+	<div class="tr">
+		<div class="td">none</div>
+		<div class="td">此元素不会被显示。</div>
+	</div>
+
+<div class="tr">
+<div class="td">block</div>
+<div class="td">此元素将显示为块级元素，此元素前后会带有换行符。</div>
+</div>
+
+<div class="tr">
+<div class="td">inline</div>
+<div class="td">默认。此元素会被显示为内联元素，元素前后没有换行符。</div>
+</div>
+
+<div class="tr">
+<div class="td">inline-block</div>
+<div class="td">行内块元素。（CSS2.1 新增的值）</div>
+</div>
+
+<div class="tr">
+<div class="td">list-item</div>
+<div class="td">此元素会作为列表显示。</div>
+</div>
+
+<div class="tr">
+<div class="td">run-in</div>
+<div class="td">此元素会根据上下文作为块级元素或内联元素显示。</div>
+</div>
+
+<div class="tr">
+<div class="td">compact</div>
+<div class="td">CSS 中有值 compact，不过由于缺乏广泛支持，已经从 CSS2.1 中删除。</div>
+</div>
+
+<div class="tr">
+<div class="td">marker</div>
+<div class="td">CSS 中有值 marker，不过由于缺乏广泛支持，已经从 CSS2.1 中删除。</div>
+</div>
+
+<div class="tr">
+<div class="td">table</div>
+<div class="td">此元素会作为块级表格来显示（类似 &lt;table&gt;），表格前后带有换行符。</div>
+</div>
+
+<div class="tr">
+<div class="td">inline-table</div>
+<div class="td">此元素会作为内联表格来显示（类似 &lt;table&gt;），表格前后没有换行符。</div>
+</div>
+
+<div class="tr">
+<div class="td">table-row-group</div>
+<div class="td">此元素会作为一个或多个行的分组来显示（类似 &lt;tbody&gt;）。</div>
+</div>
+
+<div class="tr">
+<div class="td">table-header-group</div>
+<div class="td">此元素会作为一个或多个行的分组来显示（类似 &lt;thead&gt;）。</div>
+</div>
+
+<div class="tr">
+<div class="td">table-footer-group</div>
+<div class="td">此元素会作为一个或多个行的分组来显示（类似 &lt;tfoot&gt;）。</div>
+</div>
+
+<div class="tr">
+<div class="td">table-row</div>
+<div class="td">此元素会作为一个表格行显示（类似 &lt;tr&gt;）。</div>
+</div>
+
+<div class="tr">
+<div class="td">table-column-group</div>
+<div class="td">此元素会作为一个或多个列的分组来显示（类似 &lt;colgroup&gt;）。</div>
+</div>
+
+<div class="tr">
+<div class="td">table-column </div>
+<div class="td">此元素会作为一个单元格列显示（类似 &lt;col&gt;）</div>
+</div>
+
+<div class="tr">
+<div class="td">table-cell</div>
+<div class="td">此元素会作为一个表格单元格显示（类似 &lt;td&gt; 和 &lt;th&gt;）</div>
+</div>
+
+<div class="tr">
+<div class="td">table-caption</div>
+<div class="td">此元素会作为一个表格标题显示（类似 &lt;caption&gt;）</div>
+</div>
+
+<div class="tr">
+<div class="td">inherit</div>
+<div class="td">规定应该从父元素继承 display 属性的值。</div>
+</div>
+</div>
+</div>
+
+
+<table class="dataintable">
+<tbody><tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+
+<tr>
+<td>none</td>
+<td>此元素不会被显示。</td>
+</tr>
+
+<tr>
+<td>block</td>
+<td>此元素将显示为块级元素，此元素前后会带有换行符。</td>
+</tr>
+
+<tr>
+<td>inline</td>
+<td>默认。此元素会被显示为内联元素，元素前后没有换行符。</td>
+</tr>
+
+<tr>
+<td>inline-block</td>
+<td>行内块元素。（CSS2.1 新增的值）</td>
+</tr>
+
+<tr>
+<td>list-item</td>
+<td>此元素会作为列表显示。</td>
+</tr>
+
+<tr>
+<td>run-in</td>
+<td>此元素会根据上下文作为块级元素或内联元素显示。</td>
+</tr>
+
+<tr>
+<td>compact</td>
+<td>CSS 中有值 compact，不过由于缺乏广泛支持，已经从 CSS2.1 中删除。</td>
+</tr>
+
+<tr>
+<td>marker</td>
+<td>CSS 中有值 marker，不过由于缺乏广泛支持，已经从 CSS2.1 中删除。</td>
+</tr>
+
+<tr>
+<td>table</td>
+<td>此元素会作为块级表格来显示（类似 &lt;table&gt;），表格前后带有换行符。</td>
+</tr>
+
+<tr>
+<td>inline-table</td>
+<td>此元素会作为内联表格来显示（类似 &lt;table&gt;），表格前后没有换行符。</td>
+</tr>
+
+<tr>
+<td>table-row-group</td>
+<td>此元素会作为一个或多个行的分组来显示（类似 &lt;tbody&gt;）。</td>
+</tr>
+
+<tr>
+<td>table-header-group</td>
+<td>此元素会作为一个或多个行的分组来显示（类似 &lt;thead&gt;）。</td>
+</tr>
+
+<tr>
+<td>table-footer-group</td>
+<td>此元素会作为一个或多个行的分组来显示（类似 &lt;tfoot&gt;）。</td>
+</tr>
+
+<tr>
+<td>table-row</td>
+<td>此元素会作为一个表格行显示（类似 &lt;tr&gt;）。</td>
+</tr>
+
+<tr>
+<td>table-column-group</td>
+<td>此元素会作为一个或多个列的分组来显示（类似 &lt;colgroup&gt;）。</td>
+</tr>
+
+<tr>
+<td>table-column </td>
+<td>此元素会作为一个单元格列显示（类似 &lt;col&gt;）</td>
+</tr>
+
+<tr>
+<td>table-cell</td>
+<td>此元素会作为一个表格单元格显示（类似 &lt;td&gt; 和 &lt;th&gt;）</td>
+</tr>
+
+<tr>
+<td>table-caption</td>
+<td>此元素会作为一个表格标题显示（类似 &lt;caption&gt;）</td>
+</tr>
+
+<tr>
+<td>inherit</td>
+<td>规定应该从父元素继承 display 属性的值。</td>
+</tr>
+</tbody></table>
+</body>
+</html>

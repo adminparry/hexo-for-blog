@@ -1,0 +1,292 @@
+*{margin: 0;padding: 0;}
+html,body{
+	height: 100%;
+}
+.content{
+	width: 100%;
+    height: 100%;
+	display: flex;
+	overflow: hidden;
+	flex-direction:column; 
+	
+}
+.content .edit{
+	color: #316BFD;
+	font-size: .65rem;
+}
+.content .editor{
+	color: #316BFD;
+	font-size: 1rem;
+}
+.content .date{
+	font-size: .6rem;
+	color: #A7ABBB;
+}
+.content .sameDate{
+	font-size: .8rem;
+	color: #A7ABBB;
+}
+.scrollWrap{
+	flex: 1;
+	height: 100px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+.scrollWrap .bread{
+	display: flex;flex-direction: row;
+	background: #F7F9FF;
+	padding:1.2rem;
+}
+.bread .level1{
+	font-size: 1.2rem;
+	color: #A7ABBB;
+	line-height: 1.2rem;
+}
+.bread .level2{
+	font-size: 1.2rem;
+	line-height: 1.2rem;
+	color: #316BFD;
+	padding-left: 1rem;
+}
+.bread .next{
+	color: #ccc;font-size: 1.2rem;
+	line-height: 1.2rem;	
+	flex: 1;
+    text-align: right;
+}
+/*标题*/
+.h-title{
+	font-family: PingFangSC-Medium;
+	padding:  2rem 1rem;
+	font-size: 1rem;
+	color: #28282D;
+	position: relative;
+}
+.h-title .isComplete{
+	position: absolute;
+	right: 0;top: 0;
+	width: 6rem;
+}
+
+.detail-ico{
+	margin-top: -2rem;
+	padding: 2rem 1rem;
+	display: flex;
+	flex-direction: row;
+}
+.detail-ico .right{
+	display: flex;
+	flex: 1;    width: calc(100% - 2.875rem);
+	flex-direction: column;
+}
+.detail-ico .up,.detail-ico .down{
+
+	display: flex;
+	flex-direction: row;
+	align-items:baseline;
+	color: #FFFFFF;
+	justify-content:space-between;
+	white-space: nowrap;    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.detail-ico .down{
+	color: #ccc;
+}
+.detail-ico .head_ico{
+    width: 2rem;
+    height: 2rem;
+
+	background-size: 100% 100%;	    
+}
+
+.detail-ico .up .name{
+ 	display: flex;
+ 	flex-direction: row;
+ 	color: #FFFFFF;
+    font-size: 1rem;
+    width: 80%;
+    align-items: baseline;
+}
+.detail-ico .up .name-title {
+	max-width: 33.3%;
+    color: #28282D;
+    font-size: 0.775rem;
+     white-space: nowrap;    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.detail-ico .up .nickName{
+	font-size: .6rem;
+	margin-right: .2rem;
+	background: #b3c6f5;
+	border-radius: 5px;
+	padding:0 5px;
+}
+.detail-ico .up .role{
+	font-size: .6rem;
+	margin-right: .2rem;
+	background: url('../assets/管理组-bg.png') no-repeat;
+	background-size: 100% 100%;
+	text-indent: 1.4rem;
+    padding-right: 0.3rem;
+}
+
+
+.scrollWrap .c-image{
+	 padding: 1rem .6rem;
+	margin-top: -1rem;
+}
+.scrollWrap .c-image img{
+	width: 100%;
+	 background-size: 100% 100%;
+}
+.head-bar{
+	
+    display: flex;
+    flex-direction: row;
+    padding: 1rem .6rem;
+}
+.foot-bar{
+    display: flex;
+    flex-direction: row;
+    height: 2rem;
+    align-items: center;	
+}
+.foot-bar .input{
+	width: 50%;
+	display: flex;
+	justify-content: center;
+}
+.foot-bar .option{
+	width: 50%;
+	display: flex;
+	flex-direction: row;
+	justify-content:space-between;
+	padding-right: 1.2rem;
+}
+.foot-bar .input input{
+	border: 0;
+	background: #EDEFF2;
+	border-radius: 100px;
+	text-align: center;
+	width: 90%;
+	height: 1.6rem;	
+}
+.foot-bar .agree,.foot-bar .star,.foot-bar .share{
+    height: 2rem;width: 2rem;
+}
+.foot-bar .agree{
+	background: url("../assets/icon-已点赞.png")  no-repeat;
+	position: relative;
+	background-size:100% 100%;  
+}
+.agree .count1{
+	height: .8rem;font-size: .6rem;line-height: .8rem;
+	position: absolute;left: 1.1rem;top: -.4rem;
+	background:red;border-radius: 50px; padding: 0 .6rem;
+	color:#FFFFFF;text-align: center;
+}
+.agree .count2{
+    width: .8rem;
+    height: .8rem;
+    font-size: .6rem;
+    line-height: .8rem;
+    position: absolute;
+    left: 2.61rem;
+    top: -1.8rem;
+    background: #ffba00;
+    border-radius: 50px;
+    padding: 0.1rem;
+    border: 1px solid #ccc;
+    color: #FFFFFF;
+    text-align: center;
+}
+.foot-bar .star{
+	background: url("../assets/icon-已收藏.png") no-repeat ;
+	background-size:100% 100%;  
+
+}
+.foot-bar .share{
+	background: url("../assets/icon-分享.png") no-repeat;
+	background-size:100% 100%;  
+}	
+
+.head-bar .return{
+	color: #A7ABBB;
+}
+.head-bar .title{
+	font-family: PingFangSC-Medium;
+	color: #28282D;
+	flex-grow: 1;
+	text-align: center;
+}
+.head-bar .close{
+	font-family: PingFangSC-Regular;
+	color: #28282D;
+}
+
+.scrollWrap .fontp{
+	margin-top: -2rem;
+	padding: 2rem 1rem;
+}
+.scrollWrap .h-line{
+	height: 2rem;line-height: 2rem;	
+ background: #F6F7FA;
+ text-align: center;
+ font-size: 0.7rem;
+}
+.scrollWrap .c-read{
+	padding-top: .6rem;
+}
+.scrollWrap .c-read .hr{
+	background:  #F6F7FA;
+	width: 100%;height: 1rem;
+	padding: 0 1rem;
+	margin-left: -1rem;
+}
+.scrollWrap .c-read .tip{
+	width: 100%;height: 1.2rem;
+	padding: 1.2rem 0;
+}
+.scrollWrap .c-read .tip .font{
+	display: inline-block;
+	vertical-align: middle;
+}
+.scrollWrap .c-read .tip .column_tip{
+	display: inline-block;
+	height: 1.2rem;
+	width: .3rem;
+	border-radius: 5px;	
+	background: #316BFD ;
+	vertical-align: middle;
+}
+
+.scrollWrap .c-read .tipDown{
+	border-top: 1px solid #EDEFF2;
+	padding: 1rem 0;
+
+}
+.scrollWrap .c-read .tipDown .mustAche{
+	background: #F6F7FA;
+
+}
+.scrollWrap .c-read .tipDown .same{
+    width: 2.875rem;
+    height: 2.875rem;  
+}
+.scrollWrap .c-read .tipDown .sameRight{
+	background: #F6F7FA;
+	padding: 1rem;
+	margin-top: -1rem;
+}
+.scrollWrap .c-read .tipDown .sameRight .odd,.scrollWrap .c-read .tipDown .sameRight .even{
+	padding-bottom: 1rem;
+}
+.scrollWrap .c-read .tipDown .sameRightNone{
+	margin-top: -1rem;
+}
+
+.scrollWrap .c-read .bigMuch{
+	float: right;
+	color: #A7ABBB;
+	font-size: .75rem;
+}

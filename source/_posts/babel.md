@@ -1,32 +1,25 @@
 ---
-title: es6新特性
+title: babel
 ---
-ECMAScript6 简称ES6 是JavaScript语言的下一代标准，已经在2015年6月正式发布，他的目标是使得JavaScript语言可以用来编写复杂的大型应用程序，成为企业级开发语言
-
-ES6从开始制定到最后发布，整整用了15年。
-2011年6月，ECMAscript 5.1版发布，并且成为ISO国际标准（ISO/IEC 16262:2011）。
-2013年3月，ECMAScript 6草案冻结，不再添加新功能。新的功能设想将被放到ECMAScript 7。
-2013年12月，ECMAScript 6草案发布。然后是12个月的讨论期，听取各方反馈。
-2015年6月，ECMAScript 6正式通过，成为国际标准。从2000年算起，这时已经过去了15年。
+随着es的兴起  很多低版本浏览器没有得到支持 为了兼容低版本的浏览器 这样就使用不了es6的便捷语法 于是babel就诞生了 它能够把es6的代码转化为低版本浏览器可运行的es3代码
 
 ### 箭头函数
 ``` bash
 <script type="text/javascript">
-// 不能被实例化
-	var hello = () => {
-		return this;
+	var a = () => 8;
+	var b = () =>{
+	 conosle.log('b') 
 	}
-	console.log(hello())
-	// 默认返回值
-	var hello2 = () => 9;
-	console.log(hello2())
-	var json = {}
-	json.hello = hello.bind(json);
-	// this不可获取上下文
-	console.log(json.hello())
-	
+</script>
+```
+转换方式
+```
+<script type="text/javascript">
+	"use strict";
 
-	Object.keys(window).forEach((item,index)=>console.log(item,index))
+	var a = function a() {
+	  return 8;
+	};
 </script>
 ```
 ### let const 与块级作用域
@@ -229,100 +222,43 @@ y	sticky	粘连模式
 		name:666
 	}
 	// forEach
-	// 遍历 无返回值
 	var eachResult = arr.forEach(function(item,index,all){
 		console.log(this,item,index,all);
 		return 9;
 	},context)
 	console.log(eachResult)//无返回值 undefined
 	// map
-	// 遍历 返回一个新的数组
 	var mapResult = arr.map(function(item,index,all){
 		console.log(this,item,index,all)
 		return item;
 	},context)
 	console.log(mapResult)//返回值为 arr
 	// from
-	// 返回一个新的数组类型
 	function noop(){
 		var arg = Array.from(arguments);
 		console.log(arg)
 	}
 	noop(1,23,4,5,6,7,89)
-	// copyWithin 
-	// target（必需）：从该位置开始替换数据。如果为负值，表示倒数。
-// start（可选）：从该位置开始读取数据，默认为 0。如果为负值，表示倒数。
-// end（可选）：到该位置前停止读取数据，默认等于数组长度。如果为负值，表示倒数。
-	var copyWithinResult = arr.copyWithin(0,2)
-	// [5,6,7,4,3,6 ,3,6]
-	
+	// copyWithin
+	// entries
 	// every
-	// 遍历数组每个元素都满足条件找到则跳出 返回布尔值 注意会忽略空位
-	var everyResult = arr.every((item,index,arr)=>{
-		return typeof item == 'number'
-	})
-	// some
-	// 遍历数组每个元素都满足条件找到不跳出 返回布尔值 注意会忽略空位
-	var someResult = arr.some((item,index,arr)=>{
-		return typeof item == 'number';
-	})
 	// fill
-	// 填充一个数组 返回当前数组的引用
-	// 第二个和第三个参数，用于指定填充的起始位置和结束位置。
-	var fillResult = arr.fill(6,0,1)
-	// [6,3,5,6,7,4,3,6];
-
 	// filter
-	// 按条件过滤数组 返回一个新数组
-	var filterResult = arr.filter((item,index)=>{
-		return arr.indexOf(item) == index;
-	})
-	console.log(filterResult)
 	// find
-	// 从前往后找 找到则跳出 返回满足条件的元素
-	var findResult = arr.find((item,index,arr)=>{
-		console.log(item,index,arr);
-		return value > 5;
-	})
-	console.log(findResult)
 	// findIndex
-	// 从前往后找 找到则跳出 返回满足条件的元素的索引
-	var findIndexResult = arr.findIndex((item,index,arr)=>{
-		console.log(item,index,arr);
-		return value > 5;
-	})
-	console.log(findIndexResult)
 	// includes
-	// 判断数组是否包含该元素  返回布尔值
-	// 该方法的第二个参数表示搜索的起始位置，默认为0。如果第二个参数为负数，则表示倒数的位置，如果这时它大于数组长度（比如第二个参数为-4，但数组长度为3），则会重置为从0开始。
-	// [1, 2, NaN].includes(NaN) // true 这个方法能够让我们轻松识别NaN
-	var includesResult = arr.includes(7);
-	console.log(includesResult);
-
 	// indexOf
 	var indexOfResult = arr.indexOf(3);
 	console.log(indexOfResult);//1 找不到返回 -1
-	// entries
-	// values
 	// keys
 	//返回一个迭代器对象 [object Iterator] 与generator返回一样
-	const entriesResult = arr.entries();//索引和值
-	const valuesResult = arr.values();//值
-	const keysResult = arr.keys();//索引
-	console.log([...entriesResult]) //[[索引和值]]
 
 	// lastIndexOf
 	var lastIndexOfResult = arr.lastIndexOf(3);
 	console.log(lastIndexOfResult);//6 找不到返回 -1
 	// reduce
-	// 遍历数组 阶交集
-	var reduceResult = arr.reduce((result,next,count)=>{
-		console.log(result,next,count)
-		return result+next
-	})
-	console.log(reduceResult)
 	// reduceRight
-	// 跟reduce一样 不用是遍历方向相反
+	// some
 </script>
 ```
 ### 函数的扩展
@@ -569,70 +505,10 @@ construct(target, args, proxy)
 
 ```
 ### Set和Map数据结构
-ES6 提供了新的数据结构 Set。它类似于数组，但是成员的值都是唯一的，没有重复的值 
-可以接受一个数组也可以接受一个迭代器作为初始化参数
 
 ``` bash
-<script type="text/javascript">
-	const s = new Set();
 
-	[2, 3, 5, 4, 5, 2, 2].forEach(x => s.add(x));
-
-	for (let i of s) {
-	  console.log(i);
-	}
-	// 2 3 5 4
-	const set = new Set([1, 2, 3, 4, 4]);
-	[...set]
-	// [1, 2, 3, 4]
-	
-	
-	// 去除数组的重复成员
-	[...new Set(array)]
-</script>
 ```
-属性和方法
-add(value)：添加某个值，返回 Set 结构本身。
-delete(value)：删除某个值，返回一个布尔值，表示删除是否成功。
-has(value)：返回一个布尔值，表示该值是否为Set的成员。
-clear()：清除所有成员，没有返回值。
-keys()：返回键名的遍历器
-values()：返回键值的遍历器
-entries()：返回键值对的遍历器
-forEach()：使用回调函数遍历每个成员
-
-Set.prototype.constructor：构造函数，默认就是Set函数。
-Set.prototype.size：返回Set实例的成员总数。
-``` bash
-<script type="text/javascript">
-	let a = new Set([1, 2, 3]);
-	let b = new Set([4, 3, 2]);
-
-	// 并集
-	let union = new Set([...a, ...b]);
-	// Set {1, 2, 3, 4}
-
-	// 交集
-	let intersect = new Set([...a].filter(x => b.has(x)));
-	// set {2, 3}
-
-	// 差集
-	let difference = new Set([...a].filter(x => !b.has(x)));
-	// Set {1}
-</script>
-```
-那么现在我们对Set中放置对象一定很好奇 那么放置对象我们（比较同类型引用地址方式）
-当然放置对象的还要个类似的方法	WeakSet
-WeakSet 的成员只能是对象，而不能是其他类型的值
-
-``` bash
-<script type="text/javascript">
-	const s = new Set([Math,Math]);
-	s.size
-	//1
-</script>
-```
-在这里
 ### Iterator 和 for...of 循环
 
 ``` bash
@@ -692,7 +568,7 @@ WeakSet 的成员只能是对象，而不能是其他类型的值
 ### ArrayBuffer
 ``` bash
 ```
-http://es6.ruanyifeng.com
+http://blog.csdn.net/faremax/article/details/73480861
 
 
 
