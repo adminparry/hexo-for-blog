@@ -25,3 +25,53 @@ $ touch cheerio.js
 
 </script>
 ```
+### 
+``` bash
+<script>
+	
+var fs = require('fs');
+var request = require("request");
+var cheerio = require("cheerio");
+var url = 'https://image.baidu.com/search/acjson?tn=resultjson_com&ipn=rj&ct=201326592&is=&fp=result&queryWord=%E6%97%A5%E6%9C%AC%E5%A5%B3%E4%BB%86&cl=2&lm=-1&ie=utf-8&oe=utf-8&adpicid=&st=-1&z=&ic=0&word=%E6%97%A5%E6%9C%AC%E5%A5%B3%E4%BB%86&s=&se=&tab=&width=&height=&face=0&istype=2&qc=&nc=1&fr=&pn=60&rn=30&gsm=3c&1519390513008=';
+
+const $ = cheerio.load('<h2 class="title">Hello world</h2>');
+
+const dir = './__images__';
+
+fs.mkdir(dir, 0777, function(err){
+ if(err){
+  console.log(err);
+ }else{
+  console.log("creat done!");
+  execute();
+ }
+})
+
+function execute(){
+	var download = function(url, dir, filename){
+		request.head(url, function(err, res, body){
+			request(url).pipe(fs.createWriteStream(dir + "/" + filename));
+		});
+	};
+
+	request(url,function(err,res,body){
+		if(err) throw err;
+		var body = res.body;
+		var data = JSON.parse(body).data;
+		var i = 0;
+
+		while( ++i < data.length -1 ){
+
+			console.log(data[i].middleURL);
+			var src = data[i].middleURL;
+
+			download(src, dir, new Date().getTime().toString(32) + src.substr(-4,4));
+		}
+	})
+}
+
+
+
+
+</script>
+```
