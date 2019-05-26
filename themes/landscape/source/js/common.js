@@ -1,6 +1,6 @@
 $(function(){
     var div = document.getElementsByClassName('post');
-        var all = document.body.getElementsByTagName('*');
+        // var all = document.body.getElementsByTagName('*');
         function setCss3(ele){
             ele.style.transform = 'translateY(0px)';
             ele.style.opacity = '.9';
@@ -14,16 +14,15 @@ $(function(){
            
             $('#footer').hide()
             $('nav[role=banner]').animate({'top':-top},20);
-            if(top+height == scrollHeight){
+            if(top + height == scrollHeight){
                 
                 $('#footer').show()
             }
            
 
-            
             for (var i = 0; i < div.length; i++) {
                 
-                if(document.body.scrollTop+document.documentElement.clientHeight> div[i].offsetTop){
+                if(top + height > div[i].offsetTop){
                      setCss3(div[i]);
                 }
             }

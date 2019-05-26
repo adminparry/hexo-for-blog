@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "hexo": {
-    "version": "3.5.0"
+    "version": "3.8.0"
   },
   "scripts": {
     "s": "hexo s",
     "c": "hexo clean",
-    "d": "hexo d"
+    "d": "hexo d",
+    "heroku": "hexo s -p process.env.PORT"
   },
   "dependencies": {
     "adaro": "^1.0.4",
